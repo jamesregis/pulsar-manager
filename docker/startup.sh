@@ -18,7 +18,7 @@
 # under the License.
 #
 
-initdb_binary_path = $(find / -name initdb 2> /dev/null)
+export initdb_binary_path=$(find / -name initdb 2> /dev/null)
 $initdb_binary_path -D /data/postgresql
 pg_ctl -D /data/postgresql start
 createdb
