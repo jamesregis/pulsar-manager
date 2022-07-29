@@ -18,7 +18,8 @@
 # under the License.
 #
 
-initdb -D /data/postgresql
+initdb_binary_path = $(find / -name initdb 2> /dev/null)
+$initdb_binary_path -D /data/postgresql
 pg_ctl -D /data/postgresql start
 createdb
 psql -f /pulsar-manager/init_db.sql
